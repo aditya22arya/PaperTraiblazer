@@ -1,13 +1,20 @@
 import Image from "next/image";
+import { Heros } from "./_components/Heros";
+import {Heading} from "./_components/Heading"
+import {Footer} from "./_components/Footer"
 import { Button } from "@/components/ui/button";
 export default function Home() {
   
   return (
-    <>
-    <p>hello world</p>
-    <Button variant="link">
-      click me 
-    </Button>
+    <div className="min-h-full flex flex-col">
+      <div className="flex flex-col items-center justify-center
+       md:justify-start text-center gap-y-8 flex-1 px-6 pb-10">
+        <Heading/>
+       <Heros/>
+       <Footer/>
+      </div>
+    
 
-    </>  );
+    </div> 
+  );
 }
