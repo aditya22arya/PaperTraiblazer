@@ -1,9 +1,14 @@
 "use client"
 
 import { Button } from "@/components/ui/button";
+import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
+import { SignInButton } from "@clerk/clerk-react";
+import { Spinner } from "@/components/spinner";
+import Link from "next/link";
 
 export const Heading =()=>{
+    const {isAuthenticated,isLoading}=useConvexAuth();
     return(
     <>
         <div className="max-w-3xl space-y-4">
@@ -16,9 +21,24 @@ export const Heading =()=>{
             <h3 className="text-based sm:text-xl md:text-2xl" >
                PaperTraiblazer is the connected workspace where <br/>better, faster work happens.
             </h3>
-            <Button>
+            {isLoading && (
+                <div className="w-full flex items-center justify-center">
+                <Spinner size="lg"/>
+                </div>
+            )}
+            {isAuthenticated && !isLoading &&(
+            <Button asChild>
+                <Link href="/documents">
             Enter PaperTrailblazer<ArrowRight className="h-4 w-4 ml-2" />
-            </Button>
+            </Link>
+            
+            </Button>)}
+
+            {!isAuthenticated &&!isLoading &&(
+                <SignInButton mode="modal"><Button>
+                  Get PaperTrailblazer<ArrowRight className="h-4 w-4 ml-2"/></Button>
+                </SignInButton>
+            )}
         </div>
     </>
 
