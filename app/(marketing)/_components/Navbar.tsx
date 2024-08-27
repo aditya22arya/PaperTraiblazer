@@ -14,7 +14,7 @@ export const Navbar=()=>{
     return(
         <div className={cn("z-50 bg-background fixed top-0 flex items-center w-full p-6",scrolled&&"border-b shadow-sm")}>
             <Logo/>
-            <div className ="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
+            <div className ="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-3">
                 {isLoading && (<p>
                     <Spinner/>
                 </p>)}
@@ -40,7 +40,7 @@ export const Navbar=()=>{
                 {isAuthenticated && !isLoading &&(
                     <>
                         <Button variant="ghost" size="sm" asChild>
-                            <Link href="/documents">
+                            <Link href="./documents">
                             Enter PaperTrailblazer
                             </Link>
                         </Button>

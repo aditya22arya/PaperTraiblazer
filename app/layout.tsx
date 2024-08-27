@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providors/theme-providor";
 import { ConvexClientProvider } from "@/components/providors/convex-providor";
-
+import { Toaster} from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -43,7 +43,9 @@ export default function RootLayout({
         disableTransitionOnChange
         storageKey="paperTrailblazer-theme"
         >
-        {children}
+          <div className="min-h-screen">
+        {children}</div>
+        <Toaster position="bottom-center"/>
         </ThemeProvider>
         </ConvexClientProvider>
       </body>
