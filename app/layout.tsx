@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providors/theme-providor";
 import { ConvexClientProvider } from "@/components/providors/convex-providor";
 import { Toaster} from "sonner";
+import { ModalProvidor } from "@/components/providors/modal-providor";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -44,8 +45,11 @@ export default function RootLayout({
         storageKey="paperTrailblazer-theme"
         >
           <div className="min-h-screen">
-        {children}</div>
+            {children}
+          </div>
         <Toaster position="bottom-center"/>
+        <ModalProvidor/>
+        
         </ThemeProvider>
         </ConvexClientProvider>
       </body>
